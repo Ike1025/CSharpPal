@@ -1,0 +1,3 @@
+class Swing {
+    double distance;
+}
