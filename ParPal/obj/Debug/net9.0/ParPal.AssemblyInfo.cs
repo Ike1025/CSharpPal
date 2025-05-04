@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ParPal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce7101be0dd1d12d06c39e9b734385962701c0c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fd75aaa5d63d4726f12623d6c9243fc5aad3a4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ParPal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ParPal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
