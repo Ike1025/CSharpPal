@@ -1,0 +1,15 @@
+C:\PersonalProjects\CSharpPal\ParPal\bin\Debug\net9.0\ParPal.exe
+C:\PersonalProjects\CSharpPal\ParPal\bin\Debug\net9.0\ParPal.deps.json
+C:\PersonalProjects\CSharpPal\ParPal\bin\Debug\net9.0\ParPal.runtimeconfig.json
+C:\PersonalProjects\CSharpPal\ParPal\bin\Debug\net9.0\ParPal.dll
+C:\PersonalProjects\CSharpPal\ParPal\bin\Debug\net9.0\ParPal.pdb
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.GeneratedMSBuildEditorConfig.editorconfig
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.AssemblyInfoInputs.cache
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.AssemblyInfo.cs
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.csproj.CoreCompileInputs.cache
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.sourcelink.json
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.dll
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\refint\ParPal.dll
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.pdb
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ParPal.genruntimeconfig.cache
+C:\PersonalProjects\CSharpPal\ParPal\obj\Debug\net9.0\ref\ParPal.dll
