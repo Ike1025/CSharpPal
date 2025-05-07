@@ -6,4 +6,5 @@ class Golfer(int ID, string username, string fullname)
     string username = username;
     string fullname = fullname;
     Dictionary<int, Club> clubs = new Dictionary<int, Club>();
+    Dictionary<int, Course> courses = new Dictionary<int, Course>();
 }

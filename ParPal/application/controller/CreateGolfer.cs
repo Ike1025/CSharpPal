@@ -1,6 +1,5 @@
-class LoadGolfer(string keyword) : Request {
+class CreateGolfer(string keyword) : Request {
     public string Keyword {get;} = keyword;
-
     public void Execute() {
 
     }
