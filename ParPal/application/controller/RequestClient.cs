@@ -7,9 +7,12 @@ class RequestClient {
 
         CreateGolfer createGolfer = new("createprofile", golferManager);
         requests.Add("createprofile", createGolfer);
+
+        LoadGolfer loadGolfer = new("loadprofile", golferManager);
+        requests.Add("loadprofile", loadGolfer);
     }
     public void executeCommand(string input) {
-        string command = input.ToLower();
+        string command = input.ToLower().Trim();
         command = command.Replace(" ", "");
 
         bool commandFound = CheckCommand(command);

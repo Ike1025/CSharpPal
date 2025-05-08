@@ -4,9 +4,10 @@
 
 Console.WriteLine("Hello, World!");
 bool running = true;
+RequestClient requestClient = new();
 
 while(running) {
-    RequestClient requestClient = new();
+    
     Console.Write("Enter Command: ");
     
     string? command = Console.ReadLine();
