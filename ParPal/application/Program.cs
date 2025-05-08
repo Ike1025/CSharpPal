@@ -3,5 +3,22 @@
 
 
 Console.WriteLine("Hello, World!");
-Swing.method();
+bool running = true;
+
+while(running) {
+    RequestClient requestClient = new();
+    Console.Write("Enter Command: ");
+    
+    string? command = Console.ReadLine();
+
+    if (command == null) {
+        Console.WriteLine("Null command");
+        continue;
+    } else if (command.Equals("exit")) {
+        running = false;
+        continue;
+    }
+
+    requestClient.executeCommand(command);
+}
 
