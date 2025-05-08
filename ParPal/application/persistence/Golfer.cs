@@ -1,10 +1,7 @@
-using System.Data.Common;
-
-class Golfer(int ID, string username, string fullname)
-{
-    int id = ID;
+class Golfer(string username, string fullname, string password) {
     string username = username;
     string fullname = fullname;
-    Dictionary<int, Club> clubs = new Dictionary<int, Club>();
-    Dictionary<int, Course> courses = new Dictionary<int, Course>();
+    string password = password;
+    Dictionary<int, Club> clubs = [];
+    Dictionary<int, Course> courses = [];
 }
