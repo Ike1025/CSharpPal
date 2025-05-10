@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 class GolferManager {
     Dictionary<string, Golfer> golfers;
     Golfer? currentGolfer;
+    public Golfer? CurrentGolfer{get;}
     public GolferManager() {
         golfers = [];
     }
@@ -38,4 +39,15 @@ class GolferManager {
         Console.WriteLine("Profile succesfully created");
         Console.WriteLine("Welcome " + username + "!");
     } 
+
+
+    public void AddClub(Club club) {
+        if (currentGolfer == null) {
+            return;
+        }
+
+        currentGolfer.AddClub(club);
+
+        Console.WriteLine("Successfully add club");
+    }
 }

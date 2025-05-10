@@ -20,6 +20,6 @@ while(running) {
         continue;
     }
 
-    requestClient.executeCommand(command);
+    requestClient.ExecuteCommand(command);
 }
 

@@ -10,8 +10,11 @@ class RequestClient {
 
         LoadGolfer loadGolfer = new("loadprofile", golferManager);
         requests.Add("loadprofile", loadGolfer);
+
+        AddClub addClub = new("addclub", golferManager);
+        requests.Add("addclub", addClub);
     }
-    public void executeCommand(string input) {
+    public void ExecuteCommand(string input) {
         string command = input.ToLower().Trim();
         command = command.Replace(" ", "");
 
