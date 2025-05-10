@@ -2,8 +2,8 @@ using System.Collections.ObjectModel;
 
 class GolferManager {
     Dictionary<string, Golfer> golfers;
-    Golfer? currentGolfer;
-    public Golfer? CurrentGolfer{get;}
+
+    public Golfer? CurrentGolfer{get; set;}
     public GolferManager() {
         golfers = [];
     }
@@ -16,7 +16,7 @@ class GolferManager {
             return;
         }
 
-        currentGolfer = value;
+        CurrentGolfer = value;
         Console.WriteLine("Welcome " + username + "!");
     }
 
@@ -34,7 +34,7 @@ class GolferManager {
 
         golfers.Add(username, golfer);
 
-        currentGolfer = golfer;
+        CurrentGolfer = golfer;
 
         Console.WriteLine("Profile succesfully created");
         Console.WriteLine("Welcome " + username + "!");
@@ -42,11 +42,11 @@ class GolferManager {
 
 
     public void AddClub(Club club) {
-        if (currentGolfer == null) {
+        if (CurrentGolfer == null) {
             return;
         }
 
-        currentGolfer.AddClub(club);
+        CurrentGolfer.AddClub(club);
 
         Console.WriteLine("Successfully add club");
     }

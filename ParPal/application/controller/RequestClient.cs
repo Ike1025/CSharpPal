@@ -13,6 +13,9 @@ class RequestClient {
 
         AddClub addClub = new("addclub", golferManager);
         requests.Add("addclub", addClub);
+
+        ViewClubs viewClubs = new("viewclubs", golferManager);
+        requests.Add("viewclubs", viewClubs);
     }
     public void ExecuteCommand(string input) {
         string command = input.ToLower().Trim();

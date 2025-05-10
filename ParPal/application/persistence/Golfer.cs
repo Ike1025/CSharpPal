@@ -8,4 +8,10 @@ class Golfer(string username, string fullname, string password) {
     public void AddClub(Club club) {
         clubs.Add(club);
     }
+
+    public void PrintClubs() {
+        foreach (Club club in clubs) {
+            Console.WriteLine(club);
+        }
+    }
 }
