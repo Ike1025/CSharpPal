@@ -4,7 +4,7 @@ class Course(int id, string name, float difficulty, string city, string state, i
     float Difficulty{get;} = difficulty;
     string City{get;} = city;
     string State{get;} = state;
-    int NumOfHoles{get;} = numOfHoles;
+    public int NumOfHoles{get;} = numOfHoles;
     int TotalPar{get;} = totalPar;
     List<int> ParPerHole{get;} = parPerHole;
 }
