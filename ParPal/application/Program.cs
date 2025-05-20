@@ -5,6 +5,7 @@
 Console.WriteLine("Hello, World!");
 bool running = true;
 RequestClient requestClient = new();
+MongoDbUtils.Connect();
 
 while(running) {
     
