@@ -1,6 +1,8 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-class Golfer(string username, string fullname, string password) {
+class Golfer(int id, string username, string fullname, string password) {
+    [BsonId]
+    int ID = id;
     [BsonElement("username")]
     string Username{ get; } = username;
     [BsonElement("fullname")]

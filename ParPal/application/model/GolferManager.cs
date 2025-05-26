@@ -2,16 +2,26 @@ using System.Collections.ObjectModel;
 
 class GolferManager {
     Dictionary<string, Golfer> golfers;
+    int userId = 0;
 
-    public Golfer? CurrentGolfer{get; set;}
+    public Golfer? CurrentGolfer { get; set; }
     public GolferManager() {
         golfers = [];
     }
 
-    public void LoadGolfer(string[] request) {
+    private int NextId()
+    {
+        int id = userId;
+        userId++;
+        return id;
+    }
+
+    public void LoadGolfer(string[] request)
+    {
         string username = request[0];
 
-        if (!golfers.TryGetValue(username, out Golfer? value)) {
+        if (!golfers.TryGetValue(username, out Golfer? value))
+        {
             Console.WriteLine("User does not exist");
             return;
         }
@@ -25,7 +35,7 @@ class GolferManager {
         string fullname = request[1];
         string password = request[2];
 
-        Golfer golfer = new(username, fullname, password);
+        Golfer golfer = new(NextId(), username, fullname, password);
 
         if (golfers.ContainsKey(username)) {
             Console.WriteLine("Username is already taken. Please pick a different username");
