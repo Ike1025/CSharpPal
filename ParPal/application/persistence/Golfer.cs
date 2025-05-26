@@ -1,16 +1,23 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 class Golfer(string username, string fullname, string password) {
-    string username = username;
-    string fullname = fullname;
-    string password = password;
-    List<Club> clubs = [];
-    Dictionary<int, Course> courses = [];
+    [BsonElement("username")]
+    string Username{ get; } = username;
+    [BsonElement("fullname")]
+    string Fullname{ get; } = fullname;
+    [BsonElement("password")]
+    string Password{ get; } = password;
+    [BsonElement("clubs")]
+    List<Club> Clubs{ get; } = [];
+    [BsonElement("courses")]
+    Dictionary<int, Course> Courses{ get; } = [];
 
     public void AddClub(Club club) {
-        clubs.Add(club);
+        Clubs.Add(club);
     }
 
     public void PrintClubs() {
-        foreach (Club club in clubs) {
+        foreach (Club club in Clubs) {
             Console.WriteLine(club);
         }
     }

@@ -36,6 +36,8 @@ class GolferManager {
 
         CurrentGolfer = golfer;
 
+        MongoDbUtils.AddUser(golfer);
+
         Console.WriteLine("Profile succesfully created");
         Console.WriteLine("Welcome " + username + "!");
     } 
