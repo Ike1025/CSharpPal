@@ -37,4 +37,18 @@ class MongoDbUtils
         BsonDocument doc = golfer.ToBsonDocument();
         users.InsertOne(doc);
     }
+
+    public static Dictionary<int, Golfer> LoadUsers()
+    {
+        List<BsonDocument> userDocs = users.Find(null).ToList();
+        Dictionary<int, Golfer> golferMap = [];
+
+        foreach (BsonDocument doc in userDocs)
+        {
+            Golfer golfer = new(doc["_id"].AsInt32, doc["username"].AsString, doc["fullname"].AsString, doc["password"].AsString);
+            golferMap.Add(golfer.ID, golfer);
+        }
+
+        return golferMap;
+    }
 }

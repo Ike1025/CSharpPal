@@ -2,7 +2,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 class Golfer(int id, string username, string fullname, string password) {
     [BsonId]
-    int ID = id;
+    public int ID = id;
     [BsonElement("username")]
     string Username{ get; } = username;
     [BsonElement("fullname")]
