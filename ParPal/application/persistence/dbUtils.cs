@@ -5,21 +5,21 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 class MongoDbUtils
 {
-    static MongoUrl mongoURL = new MongoUrl("mongodb+srv://myAtlasDBUser:123@myatlasclusteredu.fudhd81.mongodb.net/?retryWrites=true&w=majority");
+    static MongoUrl mongoURL = new("mongodb+srv://myAtlasDBUser:123@myatlasclusteredu.fudhd81.mongodb.net/?retryWrites=true&w=majority");
     static MongoClient? client = null;
     static IMongoDatabase? database = null;
-    static IMongoCollection<BsonDocument>? users = null;
-    static IMongoCollection<BsonDocument>? courses = null;
-    static IMongoCollection<BsonDocument>? stats = null;
+    static IMongoCollection<Golfer>? users = null;
+    static IMongoCollection<Course>? courses = null;
+    static IMongoCollection<RoundLog>? stats = null;
 
 
     public static void Connect()
     {
         client = new MongoClient(mongoURL);
         database = client.GetDatabase("ParPalDB");
-        users = database.GetCollection<BsonDocument>("users");
-        courses = database.GetCollection<BsonDocument>("courses");
-        stats = database.GetCollection<BsonDocument>("stats");
+        users = database.GetCollection<Golfer>("users");
+        courses = database.GetCollection<Course>("courses");
+        stats = database.GetCollection<RoundLog>("stats");
 
         foreach (var db in client.ListDatabases().ToList())
         {
@@ -34,19 +34,22 @@ class MongoDbUtils
             Console.WriteLine("Error in connecting to Database");
             return;
         }
-        BsonDocument doc = golfer.ToBsonDocument();
-        users.InsertOne(doc);
+
+        users.InsertOne(golfer);
     }
 
-    public static Dictionary<int, Golfer> LoadUsers()
+    public static Dictionary<string, Golfer> LoadUsers()
     {
-        List<BsonDocument> userDocs = users.Find(null).ToList();
-        Dictionary<int, Golfer> golferMap = [];
-
-        foreach (BsonDocument doc in userDocs)
+        if (users is null)
         {
-            Golfer golfer = new(doc["_id"].AsInt32, doc["username"].AsString, doc["fullname"].AsString, doc["password"].AsString);
-            golferMap.Add(golfer.ID, golfer);
+            
+        }
+        List<Golfer> userDocs = users.Find(new BsonDocument()).ToList();
+        Dictionary<string, Golfer> golferMap = [];
+
+        foreach (Golfer golfer in userDocs)
+        {
+            golferMap.Add(golfer.Username, golfer);
         }
 
         return golferMap;
