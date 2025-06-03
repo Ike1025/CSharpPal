@@ -6,18 +6,18 @@ using MongoDB.Driver;
 class MongoDbUtils
 {
     static MongoUrl mongoURL = new("mongodb+srv://myAtlasDBUser:123@myatlasclusteredu.fudhd81.mongodb.net/?retryWrites=true&w=majority");
-    static MongoClient? client = null;
-    static IMongoDatabase? database = null;
-    static IMongoCollection<Golfer>? users = null;
-    static IMongoCollection<Course>? courses = null;
-    static IMongoCollection<RoundLog>? stats = null;
+    static MongoClient? client;
+    static IMongoDatabase? database;
+    static IMongoCollection<BsonDocument>? users;
+    static IMongoCollection<Course>? courses;
+    static IMongoCollection<RoundLog>? stats;
 
 
     public static void Connect()
     {
         client = new MongoClient(mongoURL);
         database = client.GetDatabase("ParPalDB");
-        users = database.GetCollection<Golfer>("users");
+        users = database.GetCollection<BsonDocument>("users");
         courses = database.GetCollection<Course>("courses");
         stats = database.GetCollection<RoundLog>("stats");
 
@@ -35,20 +35,26 @@ class MongoDbUtils
             return;
         }
 
-        users.InsertOne(golfer);
+        users.InsertOne(golfer.ToBsonDocument());
     }
 
-    public static Dictionary<string, Golfer> LoadUsers()
+    public static Dictionary<string, Golfer>? LoadUsers()
     {
         if (users is null)
         {
-            
+            Console.WriteLine("Error in connecting to Database");
+            return null;
         }
-        List<Golfer> userDocs = users.Find(new BsonDocument()).ToList();
+        List<BsonDocument>? userDocs = users.Find(new BsonDocument()).ToList();
         Dictionary<string, Golfer> golferMap = [];
 
-        foreach (Golfer golfer in userDocs)
+        foreach (BsonDocument? golferDoc in userDocs)
         {
+            if (golferDoc.IsBsonNull)
+            {
+                continue;
+            }
+            Golfer? golfer = new(golferDoc["username"].ToString(), golferDoc["fullname"].ToString(), golferDoc["password"].ToString());
             golferMap.Add(golfer.Username, golfer);
         }
 

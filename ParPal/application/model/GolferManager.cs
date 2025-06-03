@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 
 class GolferManager {
-    Dictionary<string, Golfer> golfers;
+    Dictionary<string, Golfer>? golfers;
 
     public Golfer? CurrentGolfer { get; set; }
     public GolferManager() {
@@ -12,6 +12,12 @@ class GolferManager {
     public void LoadGolfer(string[] request)
     {
         string username = request[0];
+
+        if (golfers is null)
+        {
+            Console.WriteLine("error database did not load");
+            return;
+        }
 
         if (!golfers.TryGetValue(username, out Golfer? value))
         {
@@ -43,11 +49,26 @@ class GolferManager {
 
         Console.WriteLine("Profile succesfully created");
         Console.WriteLine("Welcome " + username + "!");
-    } 
+    }
+
+    public void ViewGolfers()
+    {
+        if (golfers is null)
+        {
+            Console.WriteLine("no golfers in application");
+            return;
+        }
+        foreach (Golfer golfer in golfers.Values)
+        {
+            Console.WriteLine(golfer.ToString());
+        }
+    }
 
 
-    public void AddClub(Club club) {
-        if (CurrentGolfer == null) {
+    public void AddClub(Club club)
+    {
+        if (CurrentGolfer == null)
+        {
             return;
         }
 

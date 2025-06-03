@@ -1,21 +1,25 @@
 class RequestClient {
     Dictionary<string, Request> requests = [];
 
-    public RequestClient() {
+    public RequestClient()
+    {
         GolferManager golferManager = new();
 
 
         CreateGolfer createGolfer = new("createprofile", golferManager);
-        requests.Add("createprofile", createGolfer);
+        requests.Add(createGolfer.Keyword, createGolfer);
 
         LoadGolfer loadGolfer = new("loadprofile", golferManager);
-        requests.Add("loadprofile", loadGolfer);
+        requests.Add(loadGolfer.Keyword, loadGolfer);
 
         AddClub addClub = new("addclub", golferManager);
-        requests.Add("addclub", addClub);
+        requests.Add(addClub.Keyword, addClub);
 
         ViewClubs viewClubs = new("viewclubs", golferManager);
-        requests.Add("viewclubs", viewClubs);
+        requests.Add(viewClubs.Keyword, viewClubs);
+
+        ViewGolfers viewGolfers = new("viewgolfers", golferManager);
+        requests.Add(viewGolfers.Keyword, viewGolfers);
     }
     public void ExecuteCommand(string input) {
         string command = input.ToLower().Trim();

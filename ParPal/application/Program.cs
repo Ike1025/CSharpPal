@@ -4,8 +4,9 @@
 
 Console.WriteLine("Hello, World!");
 bool running = true;
-RequestClient requestClient = new();
 MongoDbUtils.Connect();
+RequestClient requestClient = new();
+
 
 while(running) {
     
